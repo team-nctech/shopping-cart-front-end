@@ -15,7 +15,6 @@ function Navbar({ onSelectCategory }) {
         onSelectCategory(categoryId);
     };
 
-
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -57,6 +56,15 @@ function Navbar({ onSelectCategory }) {
                                     Categories
                                 </a>
                                 <ul className="dropdown-menu">
+                                    <li>
+                                        <a
+                                            className="dropdown-item"
+                                            href="#"
+                                            onClick={() => handleCategorySelect(null)} // Show all products (null category)
+                                        >
+                                            All Products
+                                        </a>
+                                    </li>
                                     {categories.map((category) => (
                                         <li key={category.id}>
                                             <a

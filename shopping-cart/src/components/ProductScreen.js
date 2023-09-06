@@ -9,7 +9,6 @@ export default function ProductScreen(props) {
     const [selectedCategoryId, setSelectedCategoryId] = useState(null);
 
     // setSelectedCategoryId(categoryID)
-
     useEffect(() => {
         fetch('http://localhost:8080/product/')
             .then((response) => response.json())
@@ -19,7 +18,7 @@ export default function ProductScreen(props) {
 
     // Function to filter products by category ID
     const filteredProducts = selectedCategoryId
-        ? products.filter((product) => product.categoryId === selectedCategoryId)
+        ? products.filter((product) => product.category.id === selectedCategoryId)
         : products;
 
     return (
@@ -34,6 +33,12 @@ export default function ProductScreen(props) {
                         productDescription={product.description}
                         productPrice={product.price}
                         productCode={product.code}
+                        averageRating = {product.averageRating}
+                        manufacturer = {product.manufacturer}
+                        stockQuantity = {product.stockQuantity}
+                        imageUrl = {product.imageUrl}
+                        numberOfReviews = {product.numberOfReviews}
+                        dateAdded = {product.dateAdded}
                     />
                 ))}
             </div>
